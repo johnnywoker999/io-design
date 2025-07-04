@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部落格文章 - TrendTech Mall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <link href="styles/main.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 導航欄 -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo 和品牌名稱 -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0">
+                        <img src="imgs/logo.svg" alt="Logo" class="h-8">
+                        <span class="ml-2 text-xl font-bold">潮服3C</span>
+                    </a>
+                </div>
+
+                <!-- 手機版選單按鈕和右上角圖標 -->
+                <div class="flex items-center md:hidden">
+                    <a href="cart.html" class="text-gray-700 hover:text-blue-500 px-3">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <a href="member.html" class="text-gray-700 hover:text-blue-500 px-3">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="text-gray-700 hover:text-blue-500 focus:outline-none px-2" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- 桌面版選單 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-500">首頁</a>
+                    <div class="relative group">
+                        <a href="products.html" class="text-gray-700 hover:text-blue-500">商品分類</a>
+                        <div class="absolute hidden group-hover:block w-48 bg-white shadow-lg py-2 mt-1">
+                            <a href="products.html?category=3c" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">3C配件</a>
+                            <a href="products.html?category=fashion" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">時尚配件</a>
+                            <a href="products.html?category=smart" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">智能穿戴</a>
+                        </div>
+                    </div>
+                    <a href="products.html?tag=new" class="text-gray-700 hover:text-blue-500">新品上市</a>
+                    <a href="products.html?tag=hot" class="text-gray-700 hover:text-blue-500">熱銷排行</a>
+                    <div class="relative group">
+                        <a href="blog.html" class="text-gray-700 hover:text-blue-500">新品日誌</a>
+                        <div class="absolute hidden group-hover:block w-48 bg-white shadow-lg py-2 mt-1">
+                            <a href="blog.html?category=latest" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">最新發布</a>
+                            <a href="blog.html?category=popular" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">熱門文章</a>
+                            <a href="blog.html?category=review" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">商品評測</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="expert-blog.html" class="text-gray-700 hover:text-blue-500">達人日誌</a>
+                        <div class="absolute hidden group-hover:block w-48 bg-white shadow-lg py-2 mt-1">
+                            <a href="expert-blog.html?category=style" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">穿搭技巧</a>
+                            <a href="expert-blog.html?category=tech" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">數碼評測</a>
+                            <a href="expert-blog.html?category=life" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">生活風格</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 桌面版右上角圖標 -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="cart.html" class="text-gray-700 hover:text-blue-500">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <a href="member.html" class="text-gray-700 hover:text-blue-500">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機版選單內容 -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-4 py-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500">首頁</a>
+                <!-- 商品分類 -->
+                <div class="mobile-submenu">
+                    <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-blue-500">
+                        商品分類
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="products.html?category=3c" class="block py-2 text-gray-700 hover:text-blue-500">3C配件</a>
+                        <a href="products.html?category=fashion" class="block py-2 text-gray-700 hover:text-blue-500">時尚配件</a>
+                        <a href="products.html?category=smart" class="block py-2 text-gray-700 hover:text-blue-500">智能穿戴</a>
+                    </div>
+                </div>
+                <a href="products.html?tag=new" class="block py-2 text-gray-700 hover:text-blue-500">新品上市</a>
+                <a href="products.html?tag=hot" class="block py-2 text-gray-700 hover:text-blue-500">熱銷排行</a>
+                <!-- 新品日誌 -->
+                <div class="mobile-submenu">
+                    <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-blue-500">
+                        新品日誌
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="blog.html?category=latest" class="block py-2 text-gray-700 hover:text-blue-500">最新發布</a>
+                        <a href="blog.html?category=popular" class="block py-2 text-gray-700 hover:text-blue-500">熱門文章</a>
+                        <a href="blog.html?category=review" class="block py-2 text-gray-700 hover:text-blue-500">商品評測</a>
+                    </div>
+                </div>
+                <!-- 達人日誌 -->
+                <div class="mobile-submenu">
+                    <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-blue-500">
+                        達人日誌
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="expert-blog.html?category=style" class="block py-2 text-gray-700 hover:text-blue-500">穿搭技巧</a>
+                        <a href="expert-blog.html?category=tech" class="block py-2 text-gray-700 hover:text-blue-500">數碼評測</a>
+                        <a href="expert-blog.html?category=life" class="block py-2 text-gray-700 hover:text-blue-500">生活風格</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="container mx-auto px-4 pt-24 pb-12">
+        <div class="max-w-4xl mx-auto">
+            <!-- 文章標題區 -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-4">2024年必備科技配件推薦：提升生活品質的聰明選擇</h1>
+                <div class="flex items-center text-gray-600 mb-4">
+                    <span class="mr-4"><i class="far fa-calendar mr-2"></i>2024-01-15</span>
+                    <span class="mr-4"><i class="far fa-user mr-2"></i>作者：科技達人</span>
+                    <span><i class="far fa-folder mr-2"></i>分類：3C配件</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600"><i class="far fa-eye mr-2"></i>瀏覽：2,456</span>
+                    <button class="text-gray-600 hover:text-blue-500">
+                        <i class="far fa-heart mr-2"></i>收藏：128
+                    </button>
+                    <div class="flex space-x-2">
+                        <button class="text-gray-600 hover:text-blue-500">
+                            <i class="fab fa-facebook"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-blue-500">
+                            <i class="fab fa-line"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-blue-500">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文章內容 -->
+            <div class="prose max-w-none">
+                <!-- 文章封面圖 -->
+                <div class="mb-8">
+                    <img src="https://via.placeholder.com/1200x600" alt="文章封面" class="w-full rounded-lg">
+                </div>
+
+                <!-- 文章段落 -->
+                <div class="space-y-6 text-gray-800">
+                    <p class="text-lg leading-relaxed">
+                        隨著科技的快速發展，各種創新的科技配件不斷推陳出新，為我們的生活帶來更多便利與樂趣。本文將為大家介紹2024年最值得入手的科技配件，從日常實用到提升效率，一次滿足各種需求。
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-8 mb-4">一、智能穿戴設備的新突破</h2>
+                    <p class="text-lg leading-relaxed">
+                        今年的智能手錶和健康追蹤器有了重大突破，不僅在功能上更加完善，在設計美感上也更加出色。新一代產品加入了更準確的健康監測功能，包括心率變異分析、睡眠品質追蹤等進階功能。
+                    </p>
+
+                    <div class="my-8">
+                        <img src="https://via.placeholder.com/800x400" alt="智能穿戴設備" class="w-full rounded-lg">
+                        <p class="text-sm text-gray-500 mt-2">最新款智能手錶展示</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-8 mb-4">二、居家辦公必備配件</h2>
+                    <p class="text-lg leading-relaxed">
+                        遠距工作持續普及，高品質的視訊會議設備、人體工學鍵盤滑鼠組合、螢幕增高架等配件，都成為提升工作效率的關鍵。我們特別推薦以下幾款產品：
+                    </p>
+
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>高清網路攝影機，支援自動對焦與光線調節</li>
+                        <li>降噪麥克風，確保線上會議音質清晰</li>
+                        <li>可調式螢幕支架，改善使用姿勢</li>
+                    </ul>
+
+                    <div class="bg-gray-50 p-6 rounded-lg my-8">
+                        <h3 class="text-xl font-bold mb-4">編輯推薦</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <img src="https://via.placeholder.com/300x200" alt="推薦商品" class="w-full rounded-lg mb-4">
+                                <h4 class="font-bold mb-2">高清網路攝影機</h4>
+                                <p class="text-gray-600">NT$ 2,499</p>
+                                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                                    查看商品
+                                </button>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <img src="https://via.placeholder.com/300x200" alt="推薦商品" class="w-full rounded-lg mb-4">
+                                <h4 class="font-bold mb-2">人體工學鍵盤組</h4>
+                                <p class="text-gray-600">NT$ 3,299</p>
+                                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                                    查看商品
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-8 mb-4">三、行動娛樂升級配件</h2>
+                    <p class="text-lg leading-relaxed">
+                        無論是通勤還是旅遊，優質的行動娛樂體驗都離不開這些配件的加持。新一代的無線耳機在音質和降噪效果上都有顯著提升，便攜式行動電源也更加輕薄快充。
+                    </p>
+                </div>
+
+                <!-- 文章標籤 -->
+                <div class="flex items-center space-x-2 mt-8">
+                    <i class="fas fa-tags text-gray-600"></i>
+                    <div class="space-x-2">
+                        <a href="#" class="inline-block px-3 py-1 bg-gray-100 text-gray-600 rounded-full hover:bg-gray-200">科技配件</a>
+                        <a href="#" class="inline-block px-3 py-1 bg-gray-100 text-gray-600 rounded-full hover:bg-gray-200">智能穿戴</a>
+                        <a href="#" class="inline-block px-3 py-1 bg-gray-100 text-gray-600 rounded-full hover:bg-gray-200">居家辦公</a>
+                    </div>
+                </div>
+
+                <!-- 作者資訊 -->
+                <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/80" alt="作者頭像" class="w-20 h-20 rounded-full">
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold mb-2">科技達人</h3>
+                            <p class="text-gray-600">專注於科技產品評測與開箱的科技部落客，擅長以使用者角度分析產品優缺點。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 相關文章 -->
+                <div class="mt-12">
+                    <h2 class="text-2xl font-bold mb-6">相關文章</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <a href="#" class="block group">
+                            <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <img src="https://via.placeholder.com/400x250" alt="相關文章" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold mb-2 group-hover:text-blue-600">2024年智能家居配件推薦</h3>
+                                    <p class="text-gray-600 text-sm">2024-01-10</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="block group">
+                            <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <img src="https://via.placeholder.com/400x250" alt="相關文章" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold mb-2 group-hover:text-blue-600">最新藍牙耳機評測</h3>
+                                    <p class="text-gray-600 text-sm">2024-01-08</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 評論區 -->
+                <div class="mt-12">
+                    <h2 class="text-2xl font-bold mb-6">文章評論</h2>
+                    
+                    <!-- 評論輸入框 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+                        <textarea
+                            class="w-full h-32 p-4 border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="寫下您的評論..."></textarea>
+                        <div class="flex justify-end mt-4">
+                            <button class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                發表評論
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 評論列表 -->
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <img src="https://via.placeholder.com/40" alt="用戶頭像" class="w-10 h-10 rounded-full">
+                                <div class="ml-4">
+                                    <h4 class="font-bold">王小明</h4>
+                                    <p class="text-gray-500 text-sm">2024-01-15 14:30</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-800">很實用的文章，對於選購科技配件有很大的幫助！</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <img src="https://via.placeholder.com/40" alt="用戶頭像" class="w-10 h-10 rounded-full">
+                                <div class="ml-4">
+                                    <h4 class="font-bold">李小華</h4>
+                                    <p class="text-gray-500 text-sm">2024-01-15 15:45</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-800">推薦的產品都很不錯，已經入手了智能手錶，真的很好用！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">關於我們</h3>
+                    <p class="text-gray-400">TrendTech Mall 是您潮流時尚與科技產品的首選平台。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">客戶服務</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="shopping-guide.html" class="hover:text-white">購物指南</a></li>
+                        <li><a href="return-policy.html" class="hover:text-white">退換貨政策</a></li>
+                        <li><a href="faq.html" class="hover:text-white">常見問題</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">聯繫我們</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>service@trendtech.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>0800-123-456</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">追蹤我們</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2023 TrendTech Mall. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 手機版選單開關
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 手機版子選單開關
+        document.querySelectorAll('.mobile-submenu button').forEach(button => {
+            button.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('hidden');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表 - TrendTech Mall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <link href="styles/main.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- 導航欄 -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0">
+                        <img src="imgs/logo.svg" alt="Logo" class="h-8">
+                        <span class="ml-2 text-xl font-bold">潮服3C</span>
+                    </a>
+                </div>
+                <!-- 手機版選單按鈕 -->
+                <button class="md:hidden text-gray-700 hover:text-blue-500 focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <!-- 桌面版選單 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-500">首頁</a>
+                    <div class="relative group">
+                        <a href="products.html" class="text-blue-600">商品分類</a>
+                        <div class="absolute hidden group-hover:block w-48 bg-white shadow-lg py-2 mt-1">
+                            <a href="products.html?category=3c" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">3C配件</a>
+                            <a href="products.html?category=fashion" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">時尚配件</a>
+                            <a href="products.html?category=smart" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">智能穿戴</a>
+                        </div>
+                    </div>
+                    <a href="products.html?tag=new" class="text-gray-700 hover:text-blue-500">新品上市</a>
+                    <a href="products.html?tag=hot" class="text-gray-700 hover:text-blue-500">熱銷排行</a>
+                    <div class="relative group">
+                        <a href="blog.html" class="text-gray-700 hover:text-blue-500">新品日誌</a>
+                        <div class="absolute hidden group-hover:block w-48 bg-white shadow-lg py-2 mt-1">
+                            <a href="blog.html?category=latest" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">最新發布</a>
+                            <a href="blog.html?category=popular" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">熱門文章</a>
+                            <a href="blog.html?category=review" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">商品評測</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="expert-blog.html" class="text-gray-700 hover:text-blue-500">達人日誌</a>
+                        <div class="absolute hidden group-hover:block w-48 bg-white shadow-lg py-2 mt-1">
+                            <a href="expert-blog.html?category=style" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">穿搭技巧</a>
+                            <a href="expert-blog.html?category=tech" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">數碼評測</a>
+                            <a href="expert-blog.html?category=life" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">生活風格</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="cart.html" class="text-gray-700 hover:text-blue-500">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <a href="member.html" class="text-gray-700 hover:text-blue-500">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 手機版選單內容 -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-4 py-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500">首頁</a>
+                <!-- 商品分類 -->
+                <div class="mobile-submenu">
+                    <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-blue-500">
+                        商品分類
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="products.html?category=3c" class="block py-2 text-gray-700 hover:text-blue-500">3C配件</a>
+                        <a href="products.html?category=fashion" class="block py-2 text-gray-700 hover:text-blue-500">時尚配件</a>
+                        <a href="products.html?category=smart" class="block py-2 text-gray-700 hover:text-blue-500">智能穿戴</a>
+                    </div>
+                </div>
+                <a href="products.html?tag=new" class="block py-2 text-gray-700 hover:text-blue-500">新品上市</a>
+                <a href="products.html?tag=hot" class="block py-2 text-gray-700 hover:text-blue-500">熱銷排行</a>
+                <!-- 新品日誌 -->
+                <div class="mobile-submenu">
+                    <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-blue-500">
+                        新品日誌
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="blog.html?category=latest" class="block py-2 text-gray-700 hover:text-blue-500">最新發布</a>
+                        <a href="blog.html?category=popular" class="block py-2 text-gray-700 hover:text-blue-500">熱門文章</a>
+                        <a href="blog.html?category=review" class="block py-2 text-gray-700 hover:text-blue-500">商品評測</a>
+                    </div>
+                </div>
+                <!-- 達人日誌 -->
+                <div class="mobile-submenu">
+                    <button class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-blue-500">
+                        達人日誌
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="expert-blog.html?category=style" class="block py-2 text-gray-700 hover:text-blue-500">穿搭技巧</a>
+                        <a href="expert-blog.html?category=tech" class="block py-2 text-gray-700 hover:text-blue-500">數碼評測</a>
+                        <a href="expert-blog.html?category=life" class="block py-2 text-gray-700 hover:text-blue-500">生活風格</a>
+                    </div>
+                </div>
+                <!-- 購物車和會員中心 -->
+                <div class="border-t mt-2 pt-2">
+                    <a href="cart.html" class="flex items-center py-2 text-gray-700 hover:text-blue-500">
+                        <i class="fas fa-shopping-cart mr-2"></i>
+                        購物車
+                    </a>
+                    <a href="member.html" class="flex items-center py-2 text-gray-700 hover:text-blue-500">
+                        <i class="fas fa-user mr-2"></i>
+                        會員中心
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="container mx-auto px-4 pt-24 pb-12">
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- 篩選欄 -->
+            <aside class="w-full md:w-64 bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-lg font-semibold mb-4">商品篩選</h2>
+                
+                <!-- 類別篩選 -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-medium mb-2">商品類別</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-sm">潮流服飾</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-sm">3C配件</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-sm">智能設備</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 價格區間 -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-medium mb-2">價格區間</h3>
+                    <div class="flex items-center space-x-2">
+                        <input type="number" class="w-24 px-2 py-1 border rounded" placeholder="最低">
+                        <span>-</span>
+                        <input type="number" class="w-24 px-2 py-1 border rounded" placeholder="最高">
+                    </div>
+                </div>
+
+                <!-- 品牌篩選 -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-medium mb-2">品牌</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-sm">品牌A</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-sm">品牌B</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-sm">品牌C</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 商品列表 -->
+            <div class="flex-1">
+                <!-- 排序工具欄 -->
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-600">排序方式：</span>
+                        <select class="border rounded px-2 py-1">
+                            <option>最新上架</option>
+                            <option>價格從低到高</option>
+                            <option>價格從高到低</option>
+                            <option>熱門程度</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="p-2 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 商品網格 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- 商品卡片 模板 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+                        <div class="relative pb-[100%]">
+                            <img src="https://via.placeholder.com/300" alt="商品圖片" 
+                                 class="absolute top-0 left-0 w-full h-full object-cover">
+                            <button class="absolute top-2 right-2 text-gray-600 hover:text-red-500">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-sm font-medium mb-2 line-clamp-2">商品名稱商品名稱商品名稱</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="text-yellow-400 flex items-center">
+                                    <i class="fas fa-star text-sm"></i>
+                                    <span class="ml-1 text-sm">4.5</span>
+                                </div>
+                                <span class="mx-2 text-gray-300">|</span>
+                                <span class="text-sm text-gray-500">已售 100</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-red-600 font-medium">NT$ 1,299</span>
+                                <button class="text-blue-600 hover:text-blue-700">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 重複商品卡片 -->
+                    <!-- 為了演示效果，這裡重複了幾個卡片 -->
+                    <!-- 實際應用中應該通過JavaScript動態生成 -->
+                    <!-- 商品卡片 x11 -->
+                </div>
+
+                <!-- 分頁 -->
+                <div class="mt-8 flex justify-center">
+                    <nav class="flex items-center space-x-2">
+                        <button class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="px-3 py-1 rounded border bg-blue-600 text-white">1</button>
+                        <button class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">2</button>
+                        <button class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">3</button>
+                        <span class="px-3 py-1">...</span>
+                        <button class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">10</button>
+                        <button class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-100">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">關於我們</h3>
+                    <p class="text-gray-400">TrendTech Mall 是您潮流時尚與科技產品的首選平台。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">客戶服務</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="shopping-guide.html" class="hover:text-white">購物指南</a></li>
+                        <li><a href="return-policy.html" class="hover:text-white">退換貨政策</a></li>
+                        <li><a href="faq.html" class="hover:text-white">常見問題</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">聯繫我們</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>service@trendtech.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>0800-123-456</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">追蹤我們</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2023 TrendTech Mall. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- 在body結尾前添加手機版選單的JavaScript -->
+    <script>
+        // 手機版選單開關
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 手機版子選單開關
+        document.querySelectorAll('.mobile-submenu button').forEach(button => {
+            button.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('hidden');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    </script>
+</body>
+</html>

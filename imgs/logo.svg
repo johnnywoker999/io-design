@@ -1,0 +1,18 @@
+<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- TrendTech Logo -->
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; }
+    .trend { fill: #1a1a1a; }
+    .tech { fill: #4a4a4a; }
+    .icon { fill: #2d2d2d; }
+  </style>
+  
+  <!-- Tech Icon -->
+  <path class="icon" d="M30 10 L40 25 L30 40 L20 40 L30 25 L20 10 Z" />
+  
+  <!-- Text: Trend -->
+  <text x="50" y="30" class="text trend" font-size="24">Trend</text>
+  
+  <!-- Text: Tech -->
+  <text x="120" y="30" class="text tech" font-size="24">Tech</text>
+</svg>
